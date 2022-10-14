@@ -1,4 +1,4 @@
-declare let seed1: number;
-declare let seed2: number;
-declare let seed3: any;
-declare let fibonacci: number;
+declare function fibonacci(number: number): number;
+declare let sum: number;
+declare let count: number;
+declare let number: number;

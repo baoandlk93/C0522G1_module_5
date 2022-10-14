@@ -1,12 +1,14 @@
-let seed1: number = 0;
-let seed2: number = 1;
-let seed3: number;
-let fibonacci: number = 0;
-for(let number = 2; number < 20; number++){
-    seed3 = seed1 + seed2;
-    console.log(seed3);
-    fibonacci += seed3;
-    seed1 = seed2;
-    seed2 = seed3;
+function fibonacci(number: number): number {
+    if (number == 1 || number == 2) {
+        return 1;
+    }
+    return fibonacci(number - 1) + fibonacci(number - 2);
 }
-console.log('tổng 20 số fibonacci ' + fibonacci);
+let sum:number = 0;
+let count : number = 1;
+while (count< 30){
+    sum+= fibonacci((count));
+    console.log(fibonacci(count));
+    count++;
+}
+console.log(sum);
