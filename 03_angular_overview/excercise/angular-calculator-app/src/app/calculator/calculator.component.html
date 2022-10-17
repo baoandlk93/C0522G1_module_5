@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 m-lg-auto">
+      <div class="mb-3">
+        <label class="form-label">Số thứ nhất</label>
+        <input type="number" class="form-control" [(ngModel)]="numberFirst">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Số thứ hai</label>
+        <input type="number" class="form-control" [(ngModel)]="numberSecond">
+      </div>
+      <div class="row">
+        <div class="col-3">
+            <button class="btn btn-primary" (click)="sumNumber()">Cộng(+)</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary" (click)="minusNumber()" >Trừ(-)</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary" (click)="multiplication()">Nhân(x)</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary" (click)="division()">Chia(/)</button>
+        </div>
+      </div>
+      <div class="row">
+        <input readonly  class="form-control" [value]="resultNum">
+      </div>
+    </div>
+  </div>
+</div>
