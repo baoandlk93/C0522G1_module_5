@@ -2,9 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+          crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js"
+          integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </head>
 <body>
-$END$
+<div class="d-flex justify-content-center">
+  <form method="post" class="w-50 border border-2 border-success p-3 rounded form-signin">
+    <select id="service" onchange="myFunction(this.value)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option> -- Choose Service --</option>
+      <option value="villa">Villa</option>
+      <option value="room"> Room</option>
+      <option value="house"> House</option>
+    </select>
+    <div class="container justify-content-center">
+      <div class="input-group" style="display: block">
+        <label>Tên dịch vụ</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="name" placeholder="Tên dịch vụ"/>
+        </p>
+      </div>
+      <div class="input-group" style="display: block">
+        <label> Diện tích</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="area" placeholder="Diện tích"/>
+        </p>
+      </div>
+      <div class="input-group " style="display: block">
+        <label>Giá thuê</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="cost" placeholder="Giá thuê">
+        </p>
+      </div>
+      <div class="input-group" style="display: block">
+        <label>Số người tối đa</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="maxPeople" placeholder="Số người tối đa">
+        </p>
+      </div>
+      <label>Kiểu thuê</label>
+      <select class="form-select form-select-lg mb-3"
+              aria-label=".form-select-lg example" >
+        <option>Giờ</option>
+        <option>Ngày</option>
+        <option>Tháng</option>
+        <option>Năm</option>
+      </select>
+      <div class="input-group" id="villa1" style="display: block">
+        <label>Tiêu chuẩn phòng</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="standardRoom" placeholder="Tiêu chuẩn phòng">
+        </p>
+      </div>
+      <div class="input-group" id="villa2" style="display: none">
+        <label>Tiện nghi khác</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="descriptionOtherConvenience"
+                 placeholder="Description Other Convenience">
+        </p>
+      </div>
+      <div class="input-group" id="villa3" style="display: none">
+        <label>Diện tích hồ bơi</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="poolArea">
+        </p>
+      </div>
+      <div class="input-group" id="villa4" style="display: none">
+        <label>Số tầng</label>
+        <p class="input-group-text">
+          <input type="text" class="form-control" name="numberOfFloors" placeholder="Số tầng">
+        </p>
+      </div>
+      <div class="input-group" id="room" style="display: none">
+        <label>Dịch vụ miễn phí đi kèm</label>
+        <p class="input-group-text intro">
+          <input type="text" class="form-control" name="facilityFree" placeholder="Free Service">
+        </p>
+      </div>
+      <div class="input-group">
+        <button class="btn btn-lg btn-success" type="submit" value="save">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+  function myFunction(value) {
+    switch (value) {
+      case "villa":
+        document.getElementById("villa1").style.display = "block";
+        document.getElementById("villa2").style.display = "block";
+        document.getElementById("villa3").style.display = "block";
+        document.getElementById("villa4").style.display = "block";
+        break;
+      case "house":
+        document.getElementById("villa1").style.display = "none";
+        document.getElementById("villa2").style.display = "none";
+        document.getElementById("villa3").style.display = "none";
+        document.getElementById("villa4").style.display = "none";
+        document.getElementById("villa1").style.display = "block";
+        document.getElementById("villa2").style.display = "block";
+        document.getElementById("villa4").style.display = "block";
+        break;
+      case "room":
+        document.getElementById("villa1").style.display = "none";
+        document.getElementById("villa2").style.display = "none";
+        document.getElementById("villa3").style.display = "none";
+        document.getElementById("villa4").style.display = "none";
+        document.getElementById("room").style.display = "block";
+        break;
+
+    }
+  }
+  function changeUrl(){
+    window.history.replaceState("","","/facility")
+  }
+</script>
 </body>
 </html>
