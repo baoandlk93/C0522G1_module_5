@@ -1,0 +1,66 @@
+<form [formGroup]="registerFormGroup">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="form-text text-danger"
+         *ngIf="(registerFormGroup.get('email').hasError('required')|| registerFormGroup.get('email').hasError('email'))
+         &&registerFormGroup.touched">
+      Vui lòng nhập đúng định dạng email
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="exampleInputConfirmPassword1">
+  </div>
+  <div class="form-text text-danger"
+       *ngIf="(registerFormGroup.get('confirmPassword').hasError('passwordNotMatch')||
+        registerFormGroup.get('confirmPassword').hasError('minlength'))&&
+         (registerFormGroup.touched||registerFormGroup.dirty)">
+    Vui lòng nhập đúng password ở trên
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Country</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="Đà nẵng">Đà nẵng</option>
+      <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+      <option value="Hà Nội">Hà Nội</option>
+    </select>
+    <div class="form-text text-danger"
+         *ngIf="(registerFormGroup.controls.email.hasError('required'))&& (registerFormGroup.touched||registerFormGroup.dirty)">
+     Vui lòng chọn thành phố
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Age</label>
+    <input type="number" formControlName="age" class="form-control" id="exampleInputAge1"/>
+    <div class="form-text text-danger"
+         *ngIf="registerFormGroup.controls.age.hasError('min')||registerFormGroup.controls.age.hasError('required')&&(registerFormGroup.touched||registerFormGroup.dirty)">
+      Không được để trống và Tuổi phải > 18.</div>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Nam">
+    <label class="form-check-label" for="inlineRadio1">Nam</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Nữ">
+    <label class="form-check-label" for="inlineRadio2">Nữ</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="LGBT" >
+    <label class="form-check-label" for="inlineRadio3">LGBT</label>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+    <input type="number" class="form-control" id="exampleInputPhoneNumber1" formControlName="phone">
+  </div>
+  <div class="form-text text-danger"
+       *ngIf="registerFormGroup.controls.phone.hasError('pattern')||registerFormGroup.controls.phone.hasError('required')&&(registerFormGroup.touched||registerFormGroup.dirty)">
+   số điện thoại phải bắt đầu với +84, và theo sau là 9 đến 10 chữ số.</div>
+  <button type="submit" class="btn btn-primary"
+  (click)="getValueRegister()">Submit</button>
+</form>
