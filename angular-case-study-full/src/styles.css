@@ -1,0 +1,239 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+#form {
+  width: 40%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 30%;
+  margin-bottom: 30px;
+  background-image: url("https://t4.ftcdn.net/jpg/03/22/45/85/360_F_322458522_fWMrqLWx59EDO1jYpMq0ACdkzv8YEYUj.jpg");
+}
+
+header {
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-image: url("https://freenice.net/wp-content/uploads/2021/09/Top-background-dep-ruc-ro-an-tuong-va-thu-hut-nhat.jpg");
+}
+
+nav {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__480.png");
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+nav {
+  background-color: white;
+}
+
+.col-2:hover {
+  overflow: scroll;
+  height: 520px;
+}
+
+.col-2 {
+  overflow: auto;
+}
+
+input[type=text], input[type=email], input[type=number], input[type= date], textarea, select {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #22ff00;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+body {
+  overflow-x: hidden;
+}
+.o{
+  font-family:"UTM Futura Extra";
+  border: 6px solid burlywood;
+  margin-top: -5px;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  min-height: 180px;
+  /*background-color: #07252d;*/
+  background-color: black;
+  margin-bottom: 5px;
+}
+
+.c {
+  margin-top: -30px;
+  font-weight: bold;
+  position: relative;
+  font-size: 60px;
+  letter-spacing: 15px;
+  color: #0e3742;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+  line-height: 0.70em;
+  outline: none;
+  animation: animate 7s linear infinite;
+}
+
+@keyframes animate {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%
+  {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%
+  {
+    color: #fff;
+    text-shadow: 0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4;
+  }
+
+}
+
+#is {
+  background-color: red;
+  animation-name: keyframes1;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes keyframes1 {
+  0% {
+    background-color: #f2f2f2;
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  75% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: lemonchiffon;
+  }
+}
+
+label {
+  font-size: 16px;
+  font-family: "UTM Impact";
+  text-shadow: 0em 0em 0em #ffffff,
+  0.08em 0.08em 0em #aaaaaa;
+  color: slateblue;
+  /*font-weight: bold;*/
+}
+
+footer {
+  margin: 10px 0;
+}
+
+.test {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date], input[type=email] {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], input[type=email] {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 300px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#form {
+  margin: auto;
+  width: 500px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  box-shadow: #CDCDCD;
+}
+
+
+.cot31 {
+  background-color: #62FCBD;
+}
+
+.left {
+  background: #CDCDCD;
+  height: 600px;
+  overflow: hidden;
+}
+
+.left:hover {
+  overflow: scroll;
+}
+
+body {
+  overflow-x: hidden;
+}

@@ -6,9 +6,9 @@ function fibonacci(number) {
 }
 var sum = 0;
 var count = 1;
-while (count < 30) {
+while (count <= 30) {
     sum += fibonacci((count));
-    console.log(fibonacci(count));
+    console.log("số fibonacci thứ " + count + " là " + fibonacci(count));
     count++;
 }
-console.log(sum);
+console.log("tổng " + (count - 1) + "số fibonacci là :" + sum);

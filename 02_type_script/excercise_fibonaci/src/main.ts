@@ -4,11 +4,12 @@ function fibonacci(number: number): number {
     }
     return fibonacci(number - 1) + fibonacci(number - 2);
 }
-let sum:number = 0;
-let count : number = 1;
-while (count< 30){
-    sum+= fibonacci((count));
-    console.log(fibonacci(count));
+
+let sum: number = 0;
+let count: number = 1;
+while (count <= 30) {
+    sum += fibonacci((count));
+    console.log("số fibonacci thứ " + count + " là " + fibonacci(count));
     count++;
 }
-console.log(sum);
+console.log("tổng " + (count-1) + "số fibonacci là :" + sum);
