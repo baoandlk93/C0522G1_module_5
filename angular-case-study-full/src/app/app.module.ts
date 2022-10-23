@@ -13,9 +13,7 @@ import { IndexComponent } from './home/index/index.component';
 import { FacilityListComponent } from './facility/facility-list/facility-list.component';
 import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
 import { FacilityEditComponent } from './facility/facility-edit/facility-edit.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import { EmployeeCreateComponent } from './employee/employee-create/employee-create.component';
-import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +28,7 @@ import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.co
     FacilityListComponent,
     FacilityCreateComponent,
     FacilityEditComponent,
-    EmployeeListComponent,
-    EmployeeCreateComponent,
-    EmployeeEditComponent
+    ContractCreateComponent
   ],
   imports: [
     BrowserModule,

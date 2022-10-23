@@ -1,105 +1,35 @@
-<div class="text-center"><h1>Customer List</h1></div>
+<div class="text-center"><h1>Danh sách khách hàng</h1></div>
 <div class="row">
   <div class="col-lg-3"></div>
   <div class="col-lg-3"></div>
   <div class="col-lg-6">
     <form class="d-flex" role="search" action="" method="get">
-      <input class="form-control me-2" type="search" placeholder="Search by name" aria-label="Search" name="name">
-      <button class="btn btn-outline-success" type="submit" style="background: chartreuse">Search</button>
+      <input class="form-control me-2" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search" name="name">
+      <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
     </form>
   </div>
 </div>
 <table id="tableStudent" class="table table-striped table-bordered">
   <thead>
   <tr class="bg-primary">
-    <td>Name</td>
-    <td>Gender</td>
-    <td>Phone Number</td>
-    <td>Customer Type</td>
-    <td>Address</td>
-    <td>Edit</td>
-    <td>Delete</td>
+    <th>STT</th>
+    <th>Tên</th>
+    <th>Giới tính</th>
+    <th>Số điện thoại</th>
+    <th>Xếp hạng</th>
+    <th>Địa chỉ</th>
+    <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Huỳnh Trung Thuyên</td>
-    <td>Nam</td>
-    <td>0123456789</td>
-    <td>Platinum</td>
-    <td>Huế</td>
-    <td>
-      <a href="#">
-        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-      </a>
-    </td>
-    <td>
-      <button class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#exampleModalDelete">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>Huỳnh Văn Nam</td>
-    <td>Nam</td>
-    <td>0123456789</td>
-    <td>Diamond</td>
-    <td>Quảng Nam</td>
-    <td>
-      <a href="#">
-        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-      </a>
-    </td>
-    <td>
-      <button class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#exampleModalDelete">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>Hoàng Minh Trí</td>
-    <td>Nam</td>
-    <td>0123456789</td>
-    <td>Member</td>
-    <td>Huế</td>
-    <td>
-      <a href="#">
-        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-      </a>
-    </td>
-    <td>
-      <button class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#exampleModalDelete">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>Đặng Thị Thủy Tiên</td>
-    <td>Nữ</td>
-    <td>0123456789</td>
-    <td>Gold</td>
-    <td>Quảng Nam</td>
-    <td>
-      <a href="#">
-        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-      </a>
-    </td>
-    <td>
-      <button class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#exampleModalDelete">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>Nguyễn Tấn Huân</td>
-    <td>Nam</td>
-    <td>0123456789</td>
-    <td>Silver</td>
-    <td>Quảng Nam</td>
+  <tr *ngFor="let customer of customer; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.gender}}</td>
+    <td>{{customer.phoneNumber}}</td>
+    <td>{{customer.customerType}}</td>
+    <td>{{customer.address}}</td>
     <td>
       <a href="#">
         <i class="fa-sharp fa-solid fa-pen-to-square"></i>
@@ -114,7 +44,6 @@
   </tr>
   </tbody>
 </table>
-
 <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

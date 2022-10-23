@@ -1,48 +1,45 @@
 <body>
-<div class="abc text-center"><h3>Edit Customer</h3></div>
-<div id="form" class="text-center">
-  <form
-        method="post" novalidate="novalidate">
-    <input type="hidden" />
+<div class="text-center"><h2>Chỉnh sửa thông tin khách hàng</h2></div>
+<div id="form" style="text-align: center">
+  <form method="post">
+    <input type="hidden"/>
     <div>
-      <label><b>Customer Name</b></label>
+      <label><b>Tên khách hàng</b></label>
       <input type="text" />
     </div>
     <div>
-      <label><b>Date of birth</b></label>
+      <label><b>Ngày sinh</b></label>
       <input type="date" />
     </div>
     <div>
-      <label><b>Gender</b></label>
-      <input type="radio" value="1"/>Male
-      <input type="radio" value="0"/>Female
-      <input type="radio" value="2"/>LGBT
+      <label><b>Giới tính</b></label>
+      <input type="radio"  value="1"/>Nam
+      <input type="radio"  value="0"/>Nữ
+      <input type="radio"  value="2"/>LGBT
     </div>
     <div>
-      <label><b>Id Card</b></label>
-      <input type="text" />
-
-    </div>
-    <div>
-      <label><b>Phone Number</b></label>
-      <input type="number" />
-    </div>
-    <div>
-      <label><b>Email</b></label>
+      <label><b>Số CMND/CCCD</b></label>
       <input type="text"/>
     </div>
     <div>
-      <label><b>Address</b></label>
-      <input type="text" />
+      <label><b>Số điện thoại</b></label>
+      <input type="number"/>
     </div>
     <div>
-      <label><b>Customer type</b></label>
-      <select >
-        <option>
-        </option>
+      <label><b>Email</b></label>
+      <input type="email"/>
+    </div>
+    <div>
+      <label><b>Địa chỉ</b></label>
+      <input type="text"/>
+    </div>
+    <div>
+      <label><b>Xếp hạng</b></label>
+      <select>
+        <option></option>
       </select>
     </div>
-    <input id="save" type="submit" value="Edit"/>
+    <input id="save" type="submit" value="Lưu"/>
   </form>
 </div>
 </body>

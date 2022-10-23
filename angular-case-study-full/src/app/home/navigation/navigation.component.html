@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light " id="navbar">
   <div class="container-fluid text-center">
-    <a class="navbar-brand text-light" href="home.html">HOME</a>
+    <a class="navbar-brand text-light" routerLink="">Trang chủ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,50 +10,50 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
-            Customer
+            Khách hàng
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Customer List</a></li>
+            <li><a class="dropdown-item" routerLink="/customer/list">Danh sách khách hàng</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Add new Customer</a></li>
+            <li><a class="dropdown-item" routerLink="/customer/create">Thêm mới khách hàng</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
-            Employee
+            Nhân viên
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item" href="#">Danh sách nhân viên</a></li>
             <li>
               <hr class="dropdown-divider">
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">
-            Facility
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="http://localhost:63343/case_study/facility/list.html?_ijt=f4h5hshd5beu64m2ep6hf3dkms&_ij_reload=RELOAD_ON_SAVE">Facility List</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Add new Facility</a>
             </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
-            Contract
+            Dịch vụ
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Contract List</a></li>
+            <li><a class="dropdown-item" routerLink="/facility/list">Danh sách các dịch vụ</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="facility/create">Thêm mới dịch vụ</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Hợp đồng
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Danh sách các hợp đồng</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
