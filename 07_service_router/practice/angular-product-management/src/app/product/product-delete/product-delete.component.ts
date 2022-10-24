@@ -10,7 +10,13 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 })
 export class ProductDeleteComponent implements OnInit {
 
-  productForm: FormGroup;
+  productForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(),
+    price: new FormControl(),
+    description: new FormControl(),
+    category: new FormControl()
+  });
   id: number;
 
   constructor(private productService: ProductService,
@@ -18,13 +24,7 @@ export class ProductDeleteComponent implements OnInit {
               private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const product = this.getProduct(this.id);
-      this.productForm = new FormGroup({
-        id: new FormControl(product.id),
-        name: new FormControl(product.name),
-        price: new FormControl(product.price),
-        description: new FormControl(product.description),
-      });
+      this.getProduct(this.id);
     });
   }
 
@@ -32,11 +32,19 @@ export class ProductDeleteComponent implements OnInit {
   }
 
   getProduct(id: number) {
-    return this.productService.findById(id);
+    return this.productService.findById(id).subscribe(product => {
+      this.productForm.patchValue(product);
+      this.productForm.controls.category.setValue(product.category.name);
+    });
   }
 
   deleteProduct(id: number) {
-    this.productService.deleteProduct(id);
-    this.router.navigate(['/product/list']);
+    const product = this.productForm.value;
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.router.navigate(['/product/list']);
+    }, error => {
+      console.log(error);
+    });
+
   }
 }

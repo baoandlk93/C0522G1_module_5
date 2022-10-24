@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Tao thich"
+    },
+    {
+      "name": "12esd",
+      "id": 2
+    },
+    {
+      "name": "Tieu thuyet",
+      "id": 3
+    },
+    {
+      "name": "Xuyen khong",
+      "id": 4
+    },
+    {
+      "name": "Thuyên khùng",
+      "id": 5
+    }
+  ],
+  "product": [
+    {
+      "name": "Tào lao",
+      "price": 1000000,
+      "description": "Không có gì",
+      "category": {
+        "name": "Xuyen khong",
+        "id": 4
+      },
+      "id": 2
+    },
+    {
+      "id": 4,
+      "name": "Demo 1",
+      "price": 1000,
+      "description": "thu xem",
+      "category": {
+        "name": "Tieu thuyet",
+        "id": 3
+      }
+    },
+    {
+      "id": 6,
+      "name": "Hồ minh trí",
+      "price": 1000,
+      "description": "khong co gi",
+      "category": {
+        "name": "Thuyên khùng",
+        "id": 5
+      }
+    },
+    {
+      "id": 7,
+      "name": "Anh đại hay quá chời",
+      "price": 11111111111111,
+      "description": "Hay quá chời",
+      "category": {
+        "name": "Thuyên khùng",
+        "id": 5
+      }
+    }
+  ]
+}

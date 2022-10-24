@@ -1,25 +1,31 @@
 <h1>Cập nhật thông tin sản phẩm</h1>
-<form [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
-  <table>
-    <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
-    <tr>
+<form [formGroup]="productForm" (ngSubmit)="updateProduct(id)" *ngIf="productForm != undefined">
+  <table class="table table-active">
+    <tr class="form-control">
       <td>Tên sản phẩm:</td>
-      <td><input type="text" formControlName="name"></td>
+      <td><input type="text" formControlName="name" class="form-control"></td>
     </tr>
-    <tr>
+    <tr class="form-control">
       <td>Giá sản phẩm</td>
-      <td><input type="number" formControlName="price"></td>
+      <td><input type="number" formControlName="price" class="form-control"></td>
     </tr>
-    <tr>
+    <tr class="form-control">
       <td>Mô tả về sản phẩm</td>
-      <td><input type="text" formControlName="description"></td>
+      <td><input type="text" formControlName="description" class="form-control"></td>
+    </tr>
+    <tr class="form-control">
+      <td>Thể loại</td>
+      <select  formControlName="category" class="form-control" class="form-control"
+      [compareWith]="compareWithId">
+        <option *ngFor="let category of categories;"
+                [ngValue]="category" class="form-control">
+          {{category.name}}
+        </option>
+      </select>
     </tr>
     <tr>
       <td></td>
-      <td><button>Cập nhật</button></td>
+      <td><button class="btn btn-group-sm btn-info">Cập nhật</button></td>
     </tr>
   </table>
 </form>
