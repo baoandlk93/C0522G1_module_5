@@ -1,0 +1,124 @@
+{
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "name": "Huỳnh Trung Thuyên",
+      "dateOfBirth": null,
+      "gender": 1,
+      "idCard": "123456789",
+      "phoneNumber": "0987654321",
+      "email": "thuyenwibu@gmail.com",
+      "address": "Huế",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Võ Văn Tý",
+      "dayOfBirth": "01/01/2001",
+      "gender": 1,
+      "idCard": "123456789",
+      "phoneNumber": "0987654321",
+      "email": "tygialai@gmail.com",
+      "address": "Gia lai",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      }
+    },
+    {
+      "name": "Huỳnh Văn Nam",
+      "dateOfBirth": "01/01/1993",
+      "gender": 1,
+      "idCard": "123456789",
+      "phoneNumber": "0987654321",
+      "email": "namtienson@gmail.com",
+      "address": "Quảng Nam",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Đặng Thị Thủy Tiên",
+      "dayOfBirth": "01/01/2000",
+      "gender": 0,
+      "idCard": "123456789",
+      "phoneNumber": "0987654321",
+      "email": "tiencute@gmail.com",
+      "address": "Quảng Nam",
+      "customerType": {
+        "id": 5,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Văn Phúc",
+      "dayOfBirth": "01/01/1998",
+      "gender": 1,
+      "idCard": "123456789",
+      "phoneNumber": "0987654321",
+      "email": "phucnghean@gmail.com",
+      "address": "Nghệ An",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Nguyễn Tấn Huân",
+      "dayOfBirth": "1997-01-01",
+      "gender": 1,
+      "idCard": "123456789",
+      "phoneNumber": 9897654321,
+      "email": "huannguyen@gmail.com",
+      "address": "Quảng Nam",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Hoàng Minh Trí",
+      "dayOfBirth": "1998-10-10",
+      "gender": "",
+      "idCard": "1234567899",
+      "phoneNumber": 987654321,
+      "email": "trikhung@gmail.com",
+      "address": "Huế",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      }
+    }
+  ]
+}

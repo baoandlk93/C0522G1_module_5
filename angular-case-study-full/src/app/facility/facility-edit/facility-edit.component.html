@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <form method="post" class="w-50 border border-2 border-success p-3 rounded form-signin">
+  <form class="w-50 border border-2 border-success p-3 rounded form-signin">
     <select id="service" onchange="myFunction(this.value)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
       <option> -- Choose Service --</option>
       <option value="villa">Villa</option>
@@ -76,35 +76,3 @@
     </div>
   </form>
 </div>
-<script>
-  function myFunction(value) {
-    switch (value) {
-      case "villa":
-        document.getElementById("villa1").style.display = "block";
-        document.getElementById("villa2").style.display = "block";
-        document.getElementById("villa3").style.display = "block";
-        document.getElementById("villa4").style.display = "block";
-        break;
-      case "house":
-        document.getElementById("villa1").style.display = "none";
-        document.getElementById("villa2").style.display = "none";
-        document.getElementById("villa3").style.display = "none";
-        document.getElementById("villa4").style.display = "none";
-        document.getElementById("villa1").style.display = "block";
-        document.getElementById("villa2").style.display = "block";
-        document.getElementById("villa4").style.display = "block";
-        break;
-      case "room":
-        document.getElementById("villa1").style.display = "none";
-        document.getElementById("villa2").style.display = "none";
-        document.getElementById("villa3").style.display = "none";
-        document.getElementById("villa4").style.display = "none";
-        document.getElementById("room").style.display = "block";
-        break;
-
-    }
-  }
-  function changeUrl(){
-    window.history.replaceState("","","/facility")
-  }
-</script>

@@ -20,7 +20,7 @@ const routes: Routes = [{
     path: 'customer/create', component: CustomerCreateComponent
   },
   {
-    path: 'customer/edit', component: CustomerEditComponent
+    path: 'customer/edit/:id', component: CustomerEditComponent
   },
   {
     path: 'facility/list', component: FacilityListComponent

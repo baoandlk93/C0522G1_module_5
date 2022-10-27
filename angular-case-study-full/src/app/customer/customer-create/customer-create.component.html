@@ -1,42 +1,45 @@
 <body>
 <div class="text-center"><h2>Thêm mới khách hàng</h2></div>
 <div id="form" style="text-align: center">
-  <form method="post">
+  <form [formGroup]="customerForm" (ngSubmit)="submit()">
     <input type="hidden"/>
     <div>
       <label><b>Tên khách hàng</b></label>
-      <input type="text" />
+      <input type="text" formControlName="name"/>
     </div>
     <div>
       <label><b>Ngày sinh</b></label>
-      <input type="date" />
+      <input type="date" formControlName="dayOfBirth"/>
     </div>
     <div>
       <label><b>Giới tính</b></label>
-      <input type="radio"  value="1"/>Nam
-      <input type="radio"  value="0"/>Nữ
-      <input type="radio"  value="2"/>LGBT
+      <input type="radio" [value]="1"  formControlName="gender"/>Nam
+      <input type="radio" [value]="0" formControlName="gender"/>Nữ
+      <input type="radio" [value]="2"  formControlName="gender"/>LGBT
     </div>
     <div>
       <label><b>Số CMND/CCCD</b></label>
-      <input type="text"/>
+      <input type="text"formControlName="idCard"/>
     </div>
     <div>
       <label><b>Số điện thoại</b></label>
-      <input type="number"/>
+      <input type="number" formControlName="phoneNumber"/>
     </div>
     <div>
       <label><b>Email</b></label>
-      <input type="email"/>
+      <input type="email" formControlName="email"/>
     </div>
     <div>
       <label><b>Địa chỉ</b></label>
-      <input type="text"/>
+      <input type="text" formControlName="address"/>
     </div>
     <div>
       <label><b>Xếp hạng</b></label>
-      <select>
-        <option></option>
+      <select formControlName="customerType">
+        <option *ngFor="let customerType of customerType"
+                [ngValue]="customerType" >
+          {{customerType.name}}
+        </option>
       </select>
     </div>
     <input id="save" type="submit" value="Lưu"/>

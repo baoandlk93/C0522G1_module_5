@@ -1,15 +1,16 @@
 <div class="text-center"><h1>Danh sách khách hàng</h1></div>
 <div class="row">
   <div class="col-lg-3"></div>
-  <div class="col-lg-3"></div>
   <div class="col-lg-6">
-    <form class="d-flex" role="search" action="" method="get">
-      <input class="form-control me-2" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search" name="name">
-      <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
-    </form>
+<!--    <form class="d-flex" role="search" action="" method="get">-->
+<!--      <input class="form-control" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search" name="name">-->
+<!--      <button class="btn btn-outline-success btn-group-sm" type="submit">Tìm kiếm</button>-->
+<!--    </form>-->
   </div>
+  <div class="col-lg-3"></div>
+
 </div>
-<table id="tableStudent" class="table table-striped table-bordered">
+<table class="table table-striped table-bordered text-bg-info" *ngIf="customer != undefined">
   <thead>
   <tr class="bg-primary">
     <th>STT</th>
@@ -18,26 +19,31 @@
     <th>Số điện thoại</th>
     <th>Xếp hạng</th>
     <th>Địa chỉ</th>
-    <th></th>
-    <th></th>
+    <th>Chỉnh sửa</th>
+    <th>Xóa</th>
   </tr>
   </thead>
   <tbody>
+
   <tr *ngFor="let customer of customer; index as i">
     <td>{{i + 1}}</td>
     <td>{{customer.name}}</td>
-    <td>{{customer.gender}}</td>
-    <td>{{customer.phoneNumber}}</td>
-    <td>{{customer.customerType}}</td>
-    <td>{{customer.address}}</td>
     <td>
-      <a href="#">
-        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-      </a>
+      <span *ngIf="customer.gender == 1">Nam</span>
+      <span *ngIf="customer.gender == 0">Nữ</span>
+      <span *ngIf="customer.gender == 2">LGBT</span>
+    </td>
+    <td>{{customer.phoneNumber}}</td>
+    <td>{{customer.customerType.name}}</td>
+    <td>{{customer.address}}</td>
+    <td class="text-center">
+      <button class="btn-group btn btn-warning btn-outline-secondary" [routerLink]="['/customer/edit',customer.id]">
+        <span class="text-light"><i class="fa-solid fa-pen-to-square"></i></span>
+      </button>
     </td>
     <td>
-      <button class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
-              data-bs-target="#exampleModalDelete">
+      <button class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
+              data-bs-target="#exampleModalDelete" (click)="getInfoCustomerDelete(customer.id,customer.name)">
         <i class="fa-solid fa-trash"></i>
       </button>
     </td>
@@ -51,27 +57,43 @@
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form>
+      <div>
         <div class="modal-body">
-          <input type="text" hidden name="id" id="idDelete">
-          <p> Bạn có muốn xóa : </p>
+          <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa?</h3>
+          <span class="h6">Tên khách hàng:</span><strong class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
           <p id="nameDelete"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" value="delete">Delete</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="delete" (click)="deleteCustomer()">Delete</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  $(document).ready(function () {
-    $('#tableStudent').dataTable({
-      "dom": 'lrtip',
-      "lengthChange": false,
-      "pageLength": 3
-    });
-  });
-</script>
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
+
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= totalPage">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>
+<div class="row">
+  <div class="col-sm-12 btn btn-primary">
+    Angular Sweetalert Demo
+  </div>
+</div>
