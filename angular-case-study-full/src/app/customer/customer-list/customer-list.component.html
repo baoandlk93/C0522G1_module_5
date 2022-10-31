@@ -2,15 +2,45 @@
 <div class="row">
   <div class="col-lg-3"></div>
   <div class="col-lg-6">
-<!--    <form class="d-flex" role="search" action="" method="get">-->
-<!--      <input class="form-control" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search" name="name">-->
-<!--      <button class="btn btn-outline-success btn-group-sm" type="submit">Tìm kiếm</button>-->
-<!--    </form>-->
+    <form>
+      <div class="mb-3 row">
+        <label class="col-xs-3 col-sm-auto col-form-label">Birthday From:</label>
+        <div class="col-xs-3 col-sm-auto">
+          <div class="input-group">
+            <input
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dFrom"
+              [(ngModel)]="birthdayFrom"
+              ngbDatepicker
+              (dateSelect)="search()"
+              #dFrom="ngbDatepicker"
+            />
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dFrom.toggle()" type="button"></button>
+          </div>
+        </div>
+        <label class="col-xs-3 col-sm-auto col-form-label">To:</label>
+        <div class="col-xs-3 col-sm-auto">
+          <div class="input-group">
+            <input
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dTo"
+              [(ngModel)]="birthdayTo"
+              (dateSelect)="search()"
+              ngbDatepicker
+              #dTo="ngbDatepicker"
+            />
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dTo.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="col-lg-3"></div>
 
 </div>
-<table class="table table-striped table-bordered text-bg-info" *ngIf="customer != undefined">
+<table class="table table-striped table-bordered text-bg-info">
   <thead>
   <tr class="bg-primary">
     <th>STT</th>
@@ -25,7 +55,7 @@
   </thead>
   <tbody>
 
-  <tr *ngFor="let customer of customer; index as i">
+  <tr *ngFor="let customer of (customerList$ | async); index as i">
     <td>{{i + 1}}</td>
     <td>{{customer.name}}</td>
     <td>
@@ -60,40 +90,36 @@
       <div>
         <div class="modal-body">
           <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa?</h3>
-          <span class="h6">Tên khách hàng:</span><strong class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
+          <span class="h6">Tên khách hàng:</span><strong
+          class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
           <p id="nameDelete"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="delete" (click)="deleteCustomer()">Delete</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="delete"
+                  (click)="deleteCustomer()">Delete
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<nav aria-label="..." class="justify-content-center d-flex">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
-    </li>
-    <li class="page-item disabled" *ngIf="curPage <= 1">
-      <a class="page-link">&laquo;</a>
-    </li>
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination
+    [collectionSize]="(total$ | async)!"
+    [(page)]="page"
+    [maxSize]="5"
+    [pageSize]="pageSize"
+    (pageChange)="paginate()"
+  >
+  </ngb-pagination>
 
-    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
-    </li>
-
-    <li class="page-item">
-      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
-    </li>
-    <li class="page-item disabled" *ngIf="curPage >= totalPage">
-      <a class="page-link">&raquo;</a>
-    </li>
-  </ul>
-</nav>
-<div class="row">
-  <div class="col-sm-12 btn btn-primary">
-    Angular Sweetalert Demo
-  </div>
+  <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="paginate()">
+    <option [ngValue]="2">2 items per page</option>
+    <option [ngValue]="4">4 items per page</option>
+    <option [ngValue]="6">6 items per page</option>
+    <option [ngValue]="50">50 items per page</option>
+  </select>
 </div>
+

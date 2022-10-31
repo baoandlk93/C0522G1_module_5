@@ -1,38 +1,19 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {CustomerListComponent} from './customer/customer-list/customer-list.component';
-import {CustomerCreateComponent} from './customer/customer-create/customer-create.component';
-import {CustomerEditComponent} from './customer/customer-edit/customer-edit.component';
-import {FacilityListComponent} from './facility/facility-list/facility-list.component';
-import {FacilityCreateComponent} from './facility/facility-create/facility-create.component';
-import {FacilityEditComponent} from './facility/facility-edit/facility-edit.component';
-import {ContractCreateComponent} from './contract/contract-create/contract-create.component';
+import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from './home/index/index.component';
+import {CustomerModule} from './customer/customer.module';
+import {FacilityModule} from './facility/facility.module';
 
 
-const routes: Routes = [{
-  path: '', component: IndexComponent
-},
+const routes: Routes = [
   {
-    path: 'customer/list', component: CustomerListComponent
+    path: '', component: IndexComponent
   },
   {
-    path: 'customer/create', component: CustomerCreateComponent
+    path: 'customer', loadChildren: () => CustomerModule
   },
   {
-    path: 'customer/edit/:id', component: CustomerEditComponent
-  },
-  {
-    path: 'facility/list', component: FacilityListComponent
-  },
-  {
-    path: 'facility/create', component: FacilityCreateComponent
-  },
-  {
-    path: 'facility/edit', component: FacilityEditComponent
-  },
-  {
-    path: 'contract/create', component: ContractCreateComponent
+    path: 'facility', loadChildren: () => FacilityModule
   }
 ];
 
