@@ -14,13 +14,12 @@ import swal from 'sweetalert2';
 export class CustomerCreateComponent implements OnInit {
   success: string;
   customerForm: FormGroup = new FormGroup({
-    id: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     dayOfBirth: new FormControl('', this.checkMinAge18AndMaxAge80),
     gender: new FormControl('', [Validators.required]),
-    idCard: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required, Validators.pattern('^\\d{9}$|^\\d{12}$')]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('(0|[(]84[)][+])9[01234]\\d{7}')]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     address: new FormControl('', [Validators.required]),
     customerType: new FormControl('', [Validators.required])
   });

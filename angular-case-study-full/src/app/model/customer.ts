@@ -8,6 +8,6 @@ export interface Customer {
   idCard?: string;
   phoneNumber?: string;
   email?: string;
-  address?: string;
+  customerAddress?: string;
   customerType?: CustomerType;
 }

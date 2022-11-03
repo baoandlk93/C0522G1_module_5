@@ -18,15 +18,15 @@ export class CustomerEditComponent implements OnInit {
   id: number;
   customerTypes: CustomerType[] = [];
   updateCustomerFormGroup: FormGroup = new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl('', Validators.required),
+    id: new FormControl(),
+    name: new FormControl('', [Validators.required]),
     dayOfBirth: new FormControl('', this.checkMinAge18AndMaxAge80),
-    gender: new FormControl('', Validators.required),
-    idCard: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', Validators.required),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required, Validators.pattern('^\\d{9}$|^\\d{12}$')]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('(0|[(]84[)][+])9[01]\\d{7}')]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    address: new FormControl('', Validators.required),
-    customerType: new FormControl('')
+    address: new FormControl('', [Validators.required]),
+    customerType: new FormControl()
   });
 
   constructor(private customerService: CustomerService,
@@ -58,7 +58,7 @@ export class CustomerEditComponent implements OnInit {
         idCard: new FormControl(value.idCard),
         phoneNumber: new FormControl(value.phoneNumber),
         email: new FormControl(value.email),
-        address: new FormControl(value.address),
+        address: new FormControl(value.customerAddress),
         customerType: new FormControl(value.customerType)
       });
     });

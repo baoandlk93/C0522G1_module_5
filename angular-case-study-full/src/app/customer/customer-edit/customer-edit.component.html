@@ -7,9 +7,19 @@
       <label><b>Tên khách hàng</b></label>
       <input type="text" formControlName="name"/>
     </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.name.hasError('required') &&
+                      updateCustomerFormGroup.controls.name.touched">
+      Tên khách hàng không được để trống!
+    </div>
     <div>
       <label><b>Ngày sinh</b></label>
       <input type="date" formControlName="dayOfBirth"/>
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.dayOfBirth.hasError('invalid18_80') &&
+                      updateCustomerFormGroup.controls.dayOfBirth.touched">
+      Tuổi khách hàng phải từ 18-80!
     </div>
     <div>
       <label><b>Giới tính</b></label>
@@ -17,21 +27,61 @@
       <input type="radio" [value]="0" formControlName="gender"/>Nữ
       <input type="radio" [value]="2"  formControlName="gender"/>LGBT
     </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.gender.hasError('required') &&
+                      updateCustomerFormGroup.controls.gender.touched">
+      Vui lòng chọn giới tính!
+    </div>
     <div>
       <label><b>Số CMND/CCCD</b></label>
       <input type="text"formControlName="idCard"/>
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.idCard.hasError('required') &&
+                      updateCustomerFormGroup.controls.idCard.touched">
+      Số CMND/CCCD không được để trống!
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.idCard.hasError('pattern') &&
+                      updateCustomerFormGroup.controls.idCard.touched">
+      CMND/CCCD phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9)!
     </div>
     <div>
       <label><b>Số điện thoại</b></label>
       <input type="number" formControlName="phoneNumber"/>
     </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.phoneNumber.hasError('required') &&
+                      updateCustomerFormGroup.controls.phoneNumber.touched">
+      Số điện thoại không được để trống!
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.phoneNumber.hasError('pattern') &&
+                      updateCustomerFormGroup.controls.phoneNumber.touched">
+      Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx!
+    </div>
     <div>
       <label><b>Email</b></label>
       <input type="email" formControlName="email"/>
     </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.email.hasError('required') &&
+                      updateCustomerFormGroup.controls.email.touched">
+      Email không được để trống!
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.email.hasError('email') &&
+                      updateCustomerFormGroup.controls.email.touched">
+      Email phải đúng định dạng!
+    </div>
     <div>
       <label><b>Địa chỉ</b></label>
       <input type="text" formControlName="address"/>
+    </div>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.address.hasError('required') &&
+                      updateCustomerFormGroup.controls.address.touched">
+      Địa chỉ không được để trống!
     </div>
     <div>
       <label><b>Xếp hạng</b></label>
@@ -42,7 +92,14 @@
         </option>
       </select>
     </div>
-    <button type="submit" class="btn btn-group-sm btn-info" (click)="update(id)">Cập nhật</button>
+    <div class="alert alert-danger" role="alert"
+         *ngIf="updateCustomerFormGroup.controls.customerType.hasError('required') &&
+                      updateCustomerFormGroup.controls.customerType.touched">
+      Vui lòng chọn loại khách!
+    </div>
+    <button class="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark"
+            [disabled]="updateCustomerFormGroup.invalid" (click)="update(id)">
+      -- Lưu <i class="fa-solid fa-floppy-disk"></i> --</button>
   </form>
 </div>
 </body>

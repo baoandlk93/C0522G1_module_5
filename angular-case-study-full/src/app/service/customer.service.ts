@@ -16,7 +16,7 @@ export class CustomerService {
   }
 
   save(customer): Observable<Customer> {
-    return this.http.post<Customer>(API_URL + '/api/customers', customer);
+    return this.http.post<Customer>(API_URL + '/api/customers/add', customer);
   }
 
   findById(id: number): Observable<Customer> {
@@ -32,6 +32,6 @@ export class CustomerService {
   }
 
   paginate(page: number, limit: number): Observable<SearchResult<Customer>> {
-    return this.http.get<SearchResult<Customer>>(API_URL + '/api' + '/customers' + '?_page=' + page + '&_limit=' + limit);
+    return this.http.get<SearchResult<Customer>>(API_URL + '/api' + '/customers/list' + '?number=' + page + '&size=' + limit);
   }
 }

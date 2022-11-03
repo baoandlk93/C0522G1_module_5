@@ -36,8 +36,8 @@ export class CustomerListComponent implements OnInit {
   paginate() {
     this.customerService.paginate(this.page, this.pageSize).subscribe(data => {
       console.log(data);
-      this.customerList$ = new BehaviorSubject<Customer[]>(data.data);
-      this.total$ = new BehaviorSubject<number>(data.pagination._totalRows);
+      this.customerList$ = new BehaviorSubject<Customer[]>(data.content);
+      this.total$ = new BehaviorSubject<number>(data.totalElements);
     });
   }
   search() {

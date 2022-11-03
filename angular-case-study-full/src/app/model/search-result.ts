@@ -1,8 +1,9 @@
 export interface SearchResult<T> {
-  data: T[];
+  content: T[];
   pagination: {
-    _page: number,
-    _limit: number,
-    _totalRows: number
+    number: number,
+    size: number
   };
+  totalElements: number;
 }
+
